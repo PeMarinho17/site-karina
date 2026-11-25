@@ -1,0 +1,21 @@
+{
+ "papel": "pdf:6",
+ "capa": ["pdf:7"],
+ "ensaios": [
+  "pdf:43", "pdf:42", "cr3:100CANON/_MG_9736", "pdf:40", "pdf:41", "pdf:50",
+  "cr3:100CANON/_MG_9734", "pdf:44", "pdf:45", "cr3:100CANON/_MG_9481", "pdf:54",
+  "pdf:46", "cr3:100CANON/_MG_9737", "pdf:51", "cr3:100CANON/_MG_9729"
+ ],
+ "eventos": [
+  "pdf:77", "pdf:82", "cr3:100CANON/_MG_9439", "pdf:79", "pdf:86", "pdf:74",
+  "cr3:100CANON/_MG_9422", "pdf:87", "pdf:78", "pdf:80", "cr3:100CANON/_MG_9444",
+  "pdf:93", "pdf:81", "cr3:100CANON/_MG_9469", "pdf:89", "cr3:100CANON/_MG_9493", "pdf:90"
+ ],
+ "casamentos": [
+  "cr3:101CANON/_MG_0037", "cr3:100CANON/_MG_9911", "cr3:101CANON/_MG_0039",
+  "cr3:100CANON/_MG_9869", "cr3:101CANON/_MG_0057", "cr3:100CANON/_MG_9873",
+  "cr3:101CANON/_MG_0024", "cr3:101CANON/_MG_0221", "cr3:100CANON/_MG_9974",
+  "cr3:101CANON/_MG_0046", "cr3:101CANON/_MG_0059", "cr3:101CANON/_MG_0034",
+  "cr3:101CANON/_MG_0223", "cr3:101CANON/_MG_0018"
+ ]
+}

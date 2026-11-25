@@ -1,0 +1,201 @@
+:root {
+  --papel: #ecebe8;
+  --tinta: #1d1b19;
+  --tinta-suave: #5d5853;
+  --tijolo: #9b2c1f;
+  --linha: rgba(29, 27, 25, .18);
+  --serifa: "Instrument Serif", "Didot", "Bodoni 72", Georgia, serif;
+  --mono: "Courier Prime", "Courier New", monospace;
+  --margem: clamp(16px, 5vw, 72px);
+  --espaco-secao: clamp(88px, 14vw, 180px);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+
+body {
+  margin: 0;
+  background: var(--papel) url("../assets/papel.webp") center / 1400px repeat;
+  color: var(--tinta);
+  font: 400 15px/1.6 var(--mono);
+  -webkit-font-smoothing: antialiased;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+
+h1, h2, h3 { font-family: var(--serifa); font-weight: 400; margin: 0; line-height: .9; }
+h2 { font-size: clamp(56px, 9vw, 128px); letter-spacing: -.01em; }
+
+:focus-visible { outline: 2px solid var(--tijolo); outline-offset: 3px; }
+
+/* topo */
+.topo {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  padding: 14px var(--margem);
+  background: rgba(236, 235, 232, .92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--linha);
+  font-size: 13px; text-transform: uppercase; letter-spacing: .08em;
+}
+.marca { color: var(--tijolo); text-decoration: none; font-weight: 700; }
+.topo nav { display: flex; gap: clamp(12px, 3vw, 32px); }
+.topo nav a { text-decoration: none; }
+.topo nav a:hover { color: var(--tijolo); }
+
+/* capa */
+.capa { padding: clamp(24px, 4vw, 48px) var(--margem) 0; max-width: 1280px; margin: 0 auto; }
+.capa-assinatura {
+  width: min(100%, calc(min(78vh, 820px) * .82)); margin: 0 auto 12px; text-align: right;
+  color: var(--tijolo); text-transform: uppercase; letter-spacing: .08em; font-size: 13px;
+}
+.capa-moldura {
+  position: relative; --altura-capa: min(78vh, 820px);
+  width: min(100%, calc(var(--altura-capa) * .82)); margin: 0 auto;
+}
+.capa-moldura img {
+  width: 100%; height: var(--altura-capa); object-fit: cover; object-position: 50% 30%;
+}
+.capa-titulo {
+  position: absolute; left: 0; bottom: 0;
+  writing-mode: vertical-rl; transform: rotate(180deg);
+  font-size: calc(var(--altura-capa) / 6.6); line-height: .8;
+  color: var(--tinta); mix-blend-mode: multiply;
+  text-transform: uppercase; letter-spacing: -.02em;
+  max-height: 100%; overflow: hidden;
+}
+.capa-rodape {
+  display: flex; justify-content: space-between; align-items: center; gap: 24px;
+  width: min(100%, calc(min(78vh, 820px) * .82)); margin: 0 auto; padding: 16px 0 0; font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--tinta-suave);
+}
+.capa-rodape p { margin: 0; }
+.seta { flex: 0 0 auto; display: block; width: clamp(80px, 14vw, 140px); padding: 12px 0; }
+.seta span { display: block; position: relative; height: 1.5px; background: var(--tijolo); }
+.seta span::after {
+  content: ""; position: absolute; right: -2px; top: -5px;
+  border: 6px solid transparent; border-left: 14px solid var(--tijolo); border-right: 0;
+}
+
+/* seções */
+.galeria, .servicos, .sobre { padding: var(--espaco-secao) var(--margem) 0; max-width: 1280px; margin: 0 auto; }
+.secao-cabeca {
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px 32px;
+  border-bottom: 1px solid var(--tinta); padding-bottom: 16px; margin-bottom: clamp(24px, 4vw, 48px);
+}
+
+/* galeria */
+.abas { display: flex; gap: clamp(16px, 3vw, 32px); }
+.abas button {
+  background: none; border: 0; padding: 4px 0; cursor: pointer;
+  font: inherit; text-transform: uppercase; letter-spacing: .08em; color: var(--tinta-suave);
+  border-bottom: 2px solid transparent;
+}
+.abas button[aria-selected="true"] { color: var(--tinta); border-bottom-color: var(--tijolo); }
+.abas button:hover { color: var(--tinta); }
+
+.mosaico { columns: 3 280px; column-gap: 10px; }
+.mosaico button {
+  display: block; width: 100%; padding: 0; margin: 0 0 10px; border: 0; background: var(--linha);
+  cursor: zoom-in; break-inside: avoid;
+}
+.mosaico img { width: 100%; transition: opacity .25s; }
+.mosaico button:hover img { opacity: .85; }
+.aviso { font-size: 14px; }
+
+/* serviços */
+.lista-servicos { list-style: none; margin: 0; padding: 0; }
+.lista-servicos li {
+  display: grid; grid-template-columns: 56px minmax(0, 1fr) minmax(0, 1.3fr) auto; gap: 8px 32px; align-items: baseline;
+  padding: 28px 0; border-bottom: 1px solid var(--linha);
+}
+.num { color: var(--tijolo); font-size: 13px; }
+.lista-servicos h3 { font-size: clamp(36px, 4.5vw, 56px); }
+.lista-servicos h3 em { font-size: .6em; color: var(--tinta-suave); }
+.lista-servicos p { margin: 0; color: var(--tinta-suave); max-width: 46ch; }
+.pedir {
+  white-space: nowrap; text-decoration: none; text-transform: uppercase; font-size: 13px; letter-spacing: .06em;
+  border-bottom: 1px solid var(--tijolo); padding-bottom: 2px;
+}
+.pedir:hover { color: var(--tijolo); }
+
+/* sobre */
+.sobre-texto { max-width: 760px; margin-left: auto; }
+.destaque { font-family: var(--serifa); font-style: italic; font-size: clamp(30px, 4vw, 48px); line-height: 1.1; margin: 0 0 24px; }
+.sobre-texto p:not(.destaque) { max-width: 56ch; }
+
+/* contato */
+.contato {
+  margin: var(--espaco-secao) auto 0; max-width: 1280px;
+  padding: clamp(48px, 8vw, 96px) var(--margem);
+  background: var(--tinta); color: var(--papel);
+}
+.contato h2 { font-size: clamp(64px, 12vw, 168px); }
+.contato h2 em { color: #d8846f; }
+.contato > p { max-width: 44ch; margin: 24px 0 32px; color: #c9c5bf; }
+.botao-whats {
+  display: inline-flex; flex-direction: column; gap: 2px;
+  padding: 18px 28px; background: var(--tijolo); color: #fff; text-decoration: none;
+  text-transform: uppercase; letter-spacing: .08em; font-weight: 700;
+  transition: background .2s;
+}
+.botao-whats span { font-weight: 400; letter-spacing: .04em; opacity: .85; }
+.botao-whats:hover { background: #b3372a; }
+.contato-dados { list-style: none; padding: 0; margin: 48px 0 0; display: grid; gap: 12px; }
+.contato-dados li { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 16px; overflow-wrap: anywhere; }
+.contato-dados span { color: #8f8a84; text-transform: uppercase; font-size: 12px; letter-spacing: .08em; padding-top: 3px; }
+.contato-dados a { text-decoration-color: #d8846f; }
+
+/* rodapé */
+.rodape { max-width: 1280px; margin: 0 auto; padding: 48px var(--margem) 40px; text-align: right; }
+.rodape p { margin: 0; color: var(--tijolo); font-weight: 700; }
+.rodape-marca { font-family: var(--serifa); font-weight: 400 !important; font-size: 22px; text-transform: uppercase; }
+
+/* tela cheia */
+.tela-cheia {
+  width: 100vw; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0;
+  background: rgba(20, 18, 17, .96); color: var(--papel);
+}
+.tela-cheia::backdrop { background: rgba(20, 18, 17, .96); }
+.tela-cheia[open] { display: flex; align-items: center; justify-content: center; }
+.tela-cheia img { max-width: calc(100vw - 32px); max-height: calc(100dvh - 120px); object-fit: contain; }
+.tela-cheia button {
+  position: absolute; background: none; border: 0; color: var(--papel); cursor: pointer;
+  font: 400 32px/1 var(--mono); padding: 16px;
+}
+.tela-cheia button:hover { color: #d8846f; }
+.tc-fechar { top: 8px; right: 8px; }
+.tc-anterior { left: 8px; top: 50%; transform: translateY(-50%); }
+.tc-proxima { right: 8px; top: 50%; transform: translateY(-50%); }
+.tc-contador { position: absolute; bottom: 16px; left: 0; right: 0; text-align: center; margin: 0; font-size: 13px; letter-spacing: .1em; }
+
+@media (min-width: 900px) {
+  .capa-titulo { left: -.38em; }
+}
+
+/* celular */
+@media (max-width: 720px) {
+  body { font-size: 14px; }
+  .topo { font-size: 11px; }
+  .topo nav { gap: 12px; }
+  .capa-moldura { --altura-capa: 72vh; }
+  .capa-rodape { font-size: 11px; }
+  .lista-servicos li { grid-template-columns: 36px minmax(0, 1fr); }
+  .lista-servicos p, .pedir { grid-column: 2; }
+  .pedir { justify-self: start; margin-top: 8px; }
+  .mosaico { columns: 2; column-gap: 6px; }
+  .mosaico button { margin-bottom: 6px; }
+  .contato-dados li { grid-template-columns: 1fr; gap: 0; }
+  .tela-cheia button { font-size: 26px; }
+  .tc-anterior, .tc-proxima { top: auto; bottom: 4px; transform: none; }
+}
+
+@media (max-width: 400px) {
+  .marca { display: none; }
+  .topo nav { width: 100%; justify-content: space-between; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
